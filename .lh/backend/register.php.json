@@ -1,0 +1,18 @@
+{
+    "sourceFile": "backend/register.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1765175232052,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1765175232052,
+            "name": "Commit-0",
+            "content": "<?php\r\n// backend/register.php\r\ninclude 'connect.php';\r\n\r\nif ($_SERVER[\"REQUEST_METHOD\"] == \"POST\") {\r\n    $username = trim($_POST['username']);\r\n    $password = $_POST['password'];\r\n    $fullname = trim($_POST['fullname']);\r\n\r\n    // เข้ารหัส password\r\n    $passwordHash = password_hash($password, PASSWORD_DEFAULT);\r\n\r\n    // ตรวจสอบ username ซ้ำ\r\n    $tsql_check = \"SELECT * FROM Users WHERE Username = ?\";\r\n    $params_check = array($username);\r\n    $stmt_check = sqlsrv_query($conn, $tsql_check, $params_check);\r\n\r\n    if ($stmt_check === false) {\r\n        die(\"Error: \" . print_r(sqlsrv_errors(), true));\r\n    }\r\n\r\n    if (sqlsrv_has_rows($stmt_check)) {\r\n        echo \"Username นี้มีคนใช้แล้ว!\";\r\n    } else {\r\n        // เพิ่ม user ใหม่\r\n        $tsql_insert = \"INSERT INTO Users (Username, PasswordHash, FullName) VALUES (?, ?, ?)\";\r\n        $params_insert = array($username, $passwordHash, $fullname);\r\n        $stmt_insert = sqlsrv_query($conn, $tsql_insert, $params_insert);\r\n\r\n        if ($stmt_insert) {\r\n            echo \"สมัครสมาชิกเรียบร้อย! <a href='../login.html'>ไปหน้า Login</a>\";\r\n        } else {\r\n            die(\"Error: \" . print_r(sqlsrv_errors(), true));\r\n        }\r\n    }\r\n} else {\r\n    echo \"Invalid request method.\";\r\n}\r\n?>\r\n"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "sourceFile": "backend/connect.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1765175138593,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1765175350065,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n $serverName = \"localhost\"; // หรือชื่อ server ของคุณ\r\n $connectionOptions = array(\r\n     \"Database\" => \"MyWebsiteDB\",\r\n     \"Uid\" => \"sa\",           // SQL Server username\r\n-    \"PWD\" => \"your_password\" // SQL Server password\r\n+    \"PWD\" => \"Tritg0hk1\" // SQL Server password\r\n );\r\n \r\n // เชื่อมต่อ SQL Server\r\n $conn = sqlsrv_connect($serverName, $connectionOptions);\r\n"
+                }
+            ],
+            "date": 1765175138593,
+            "name": "Commit-0",
+            "content": "<?php\r\n// backend/connect.php\r\n\r\n$serverName = \"localhost\"; // หรือชื่อ server ของคุณ\r\n$connectionOptions = array(\r\n    \"Database\" => \"MyWebsiteDB\",\r\n    \"Uid\" => \"sa\",           // SQL Server username\r\n    \"PWD\" => \"your_password\" // SQL Server password\r\n);\r\n\r\n// เชื่อมต่อ SQL Server\r\n$conn = sqlsrv_connect($serverName, $connectionOptions);\r\n\r\nif (!$conn) {\r\n    die(\"Connection failed: \" . print_r(sqlsrv_errors(), true));\r\n}\r\n?>\r\n"
+        }
+    ]
+}

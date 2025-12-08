@@ -1,0 +1,18 @@
+{
+    "sourceFile": "backend/login.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1765176567292,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1765176567292,
+            "name": "Commit-0",
+            "content": "<?php\r\n// backend/login.php\r\nsession_start(); // เริ่ม session\r\ninclude 'connect.php';\r\n\r\nif ($_SERVER[\"REQUEST_METHOD\"] == \"POST\") {\r\n    $username = trim($_POST['username']);\r\n    $password = $_POST['password'];\r\n\r\n    // ดึง user จากฐานข้อมูล\r\n    $tsql = \"SELECT * FROM Users WHERE Username = ?\";\r\n    $params = array($username);\r\n    $stmt = sqlsrv_query($conn, $tsql, $params);\r\n\r\n    if ($stmt === false) {\r\n        die(\"Error: \" . print_r(sqlsrv_errors(), true));\r\n    }\r\n\r\n    if (sqlsrv_has_rows($stmt)) {\r\n        $user = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);\r\n        \r\n        // ตรวจสอบ password\r\n        if (password_verify($password, $user['PasswordHash'])) {\r\n            // Login สำเร็จ → เก็บ session\r\n            $_SESSION['user_id'] = $user['Id'];\r\n            $_SESSION['username'] = $user['Username'];\r\n            $_SESSION['fullname'] = $user['FullName'];\r\n\r\n            // Redirect ไปหน้า home หรือ index\r\n            header(\"Location: ../index.html\");\r\n            exit();\r\n        } else {\r\n            // รหัสผ่านไม่ถูกต้อง\r\n            echo \"ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง\";\r\n        }\r\n    } else {\r\n        // ไม่มี username นี้\r\n        echo \"ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง\";\r\n    }\r\n} else {\r\n    echo \"Invalid request method.\";\r\n}\r\n?>\r\n"
+        }
+    ]
+}

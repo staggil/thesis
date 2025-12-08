@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - เว็บไซต์สอนเขียนโปรแกรม</title>
     <link rel="stylesheet" href="style.css">
-    <script src="login.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
-<body data-sidebar="/components/empty.html" class="login-page">
+<body data-sidebar="components/empty.html" class="login-page">
 
     <!-- Header -->
     <div id="header-placeholder"></div>
@@ -27,11 +27,52 @@
 
             <button type="submit">เข้าสู่ระบบ</button>
         </form>
-        <p id="login-error" style="color: red; display: none;">ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง</p>
+        <p id="login-error" style="color: red; display: none;"></p>
     </main>
 
     <!-- Footer -->
     <div id="footer-placeholder"></div>
+
+    <script>
+    document.getElementById("login-form").addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value;
+
+        if (!username || !password) {
+            const err = document.getElementById("login-error");
+            err.style.display = "block";
+            err.textContent = "กรุณากรอกชื่อผู้ใช้และรหัสผ่าน";
+            return;
+        }
+
+        try {
+            const res = await fetch("/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ username, password })
+            });
+
+            const data = await res.json();
+
+            const err = document.getElementById("login-error");
+            if (data.success) {
+                err.style.display = "none";
+                alert(data.message);
+                window.location.href = "/"; // redirect ไปหน้า index
+            } else {
+                err.style.display = "block";
+                err.textContent = data.message;
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            const err = document.getElementById("login-error");
+            err.style.display = "block";
+            err.textContent = "เกิดข้อผิดพลาดในการเชื่อมต่อเซิร์ฟเวอร์";
+        }
+    });
+    </script>
 
 </body>
 </html>

@@ -1,0 +1,22 @@
+{
+    "sourceFile": "components/header.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1765180992241,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1765181241676,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,4 +19,46 @@\n         document.querySelectorAll(\".login-only\").forEach(el => el.style.display = \"block\");\r\n         window.location.href = \"/login.html\";    // redirect ไปหน้า login\r\n     });\r\n }\r\n+\r\n+async function updateHeader() {\r\n+    try {\r\n+        // ตรวจสอบว่า login แล้วหรือยัง (เราต้องมี route /me ที่คืน user info ถ้า login)\r\n+        const res = await fetch(\"/me\");\r\n+        let user;\r\n+        if (res.ok) {\r\n+            user = await res.json();\r\n+        }\r\n+\r\n+        if (user && user.username) {\r\n+            // แสดง user-only\r\n+            document.querySelectorAll(\".user-only\").forEach(el => el.style.display = \"block\");\r\n+            document.querySelectorAll(\".login-only\").forEach(el => el.style.display = \"none\");\r\n+\r\n+            const usernameDisplay = document.getElementById(\"username-display\");\r\n+            if (usernameDisplay) usernameDisplay.textContent = user.fullname;\r\n+\r\n+            // ตั้ง event logout\r\n+            const logoutLink = document.getElementById(\"logout-link\");\r\n+            if (logoutLink) {\r\n+                logoutLink.addEventListener(\"click\", async (e) => {\r\n+                    e.preventDefault();\r\n+                    await fetch(\"/logout\", { method: \"POST\" });\r\n+                    // redirect ไป login\r\n+                    window.location.href = \"/login.html\";\r\n+                });\r\n+            }\r\n+\r\n+        } else {\r\n+            // ถ้าไม่ login\r\n+            document.querySelectorAll(\".user-only\").forEach(el => el.style.display = \"none\");\r\n+            document.querySelectorAll(\".login-only\").forEach(el => el.style.display = \"block\");\r\n+        }\r\n+\r\n+    } catch (err) {\r\n+        console.error(\"Cannot update header:\", err);\r\n+    }\r\n+}\r\n+\r\n+// เรียกตอนโหลด header เสร็จ\r\n+updateHeader();\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1765180992241,
+            "name": "Commit-0",
+            "content": "// ตรวจสอบ login status\r\nconst username = localStorage.getItem(\"username\");\r\nif(username){\r\n    document.querySelectorAll(\".user-only\").forEach(el => el.style.display = \"block\");\r\n    document.getElementById(\"username-display\").textContent = username;\r\n    document.querySelectorAll(\".login-only\").forEach(el => el.style.display = \"none\");\r\n} else {\r\n    document.querySelectorAll(\".user-only\").forEach(el => el.style.display = \"none\");\r\n    document.querySelectorAll(\".login-only\").forEach(el => el.style.display = \"block\");\r\n}\r\n\r\n// logout\r\nconst logoutLink = document.getElementById(\"logout-link\");\r\nif(logoutLink){\r\n    logoutLink.addEventListener(\"click\", (e) => {\r\n        e.preventDefault();\r\n        localStorage.removeItem(\"username\");      // ลบ session local\r\n        document.querySelectorAll(\".user-only\").forEach(el => el.style.display = \"none\");\r\n        document.querySelectorAll(\".login-only\").forEach(el => el.style.display = \"block\");\r\n        window.location.href = \"/login.html\";    // redirect ไปหน้า login\r\n    });\r\n}\r\n"
+        }
+    ]
+}

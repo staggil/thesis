@@ -1,11 +1,15 @@
 <header>
-    <nav class="navbar">
-        <ul>
+   <nav class="navbar">
+        <ul id="nav-items">
             <li><a href="/index.html">หน้าแรก</a></li>
             <li><a href="/lessons/intro.html">บทเรียน</a></li>
             <li><a href="/examples/draw-rect.html">ตัวอย่าง</a></li>
             <li><a href="/exercises/exercise1.html">แบบฝึกหัด</a></li>
             <li><a href="/about/about.html">เกี่ยวกับ</a></li>
+            <li class="login-only"><a href="/register.html">ลงทะเบียน</a></li>
+            <li class="login-only"><a href="/login.html">ล็อกอิน</a></li>
+            <li class="user-only"><span id="username-display"></span></li>
+            <li class="user-only"><a href="#" id="logout-link">ออกจากระบบ</a></li>
         </ul>
     </nav>
 </header>

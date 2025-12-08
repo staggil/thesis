@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 15,
+            "activePatchIndex": 19,
             "patches": [
                 {
                     "date": 1765164069302,
@@ -68,6 +68,22 @@
                 {
                     "date": 1765166052363,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -133,5 +133,19 @@\n body.login-page #sidebar-placeholder {\r\n     display: none; /* ซ่อน sidebar */\r\n }\r\n \r\n+/* หน้า register ให้ layout อยู่กลางเหมือน login */\r\n+body.register-page #main-content {\r\n+    max-width: 400px;          /* กว้างพอ form */\r\n+    margin: 50px auto;         /* จัดกลางหน้า */\r\n+    padding: 20px;\r\n+    background-color: #fff;    /* เหมือน container */\r\n+    border-radius: 8px;\r\n+    box-shadow: 0 0 10px rgba(0,0,0,0.1);\r\n+}\r\n \r\n+body.register-page #sidebar-placeholder {\r\n+    display: none; /* ซ่อน sidebar */\r\n+}\r\n+\r\n+\r\n"
+                },
+                {
+                    "date": 1765176052186,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -147,5 +147,9 @@\n body.register-page #sidebar-placeholder {\r\n     display: none; /* ซ่อน sidebar */\r\n }\r\n \r\n-\r\n+/* ลบหรือ comment ส่วนนี้ */\r\n+body.login-page #sidebar-placeholder,\r\n+body.register-page #sidebar-placeholder {\r\n+    display: none;\r\n+}\r\n"
+                },
+                {
+                    "date": 1765176373841,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -129,12 +129,10 @@\n     border-radius: 8px;\r\n     box-shadow: 0 0 10px rgba(0,0,0,0.1);\r\n }\r\n \r\n-body.login-page #sidebar-placeholder {\r\n-    display: none; /* ซ่อน sidebar */\r\n-}\r\n \r\n+\r\n /* หน้า register ให้ layout อยู่กลางเหมือน login */\r\n body.register-page #main-content {\r\n     max-width: 400px;          /* กว้างพอ form */\r\n     margin: 50px auto;         /* จัดกลางหน้า */\r\n@@ -143,13 +141,5 @@\n     border-radius: 8px;\r\n     box-shadow: 0 0 10px rgba(0,0,0,0.1);\r\n }\r\n \r\n-body.register-page #sidebar-placeholder {\r\n-    display: none; /* ซ่อน sidebar */\r\n-}\r\n \r\n-/* ลบหรือ comment ส่วนนี้ */\r\n-body.login-page #sidebar-placeholder,\r\n-body.register-page #sidebar-placeholder {\r\n-    display: none;\r\n-}\r\n"
+                },
+                {
+                    "date": 1765180591110,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -141,5 +141,10 @@\n     border-radius: 8px;\r\n     box-shadow: 0 0 10px rgba(0,0,0,0.1);\r\n }\r\n \r\n+/* ซ่อน element ตาม class จนกว่า JS จะปรับ */\r\n+.login-only, .user-only {\r\n+    display: none;  /* default ซ่อนทั้งหมด */\r\n+}\r\n \r\n+\r\n"
+                },
+                {
+                    "date": 1765180740707,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -141,10 +141,7 @@\n     border-radius: 8px;\r\n     box-shadow: 0 0 10px rgba(0,0,0,0.1);\r\n }\r\n \r\n-/* ซ่อน element ตาม class จนกว่า JS จะปรับ */\r\n-.login-only, .user-only {\r\n-    display: none;  /* default ซ่อนทั้งหมด */\r\n-}\r\n \r\n \r\n+\r\n"
                 }
             ],
             "date": 1765164069302,
