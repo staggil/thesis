@@ -1,0 +1,26 @@
+{
+    "sourceFile": "components/examples_sidebar.html",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1765160660896,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1765160673004,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-<aside id=\"sidebar\">\r\n+<aside id=\"ex_sidebar\">\r\n     <ul>\r\n         <li><a href=\"/examples/draw-rect.html\">การวาดรูปทรงเหลี่ยม</a></li>\r\n         <li><a href=\"/examples/input-keyboard.html\">การป้อนข้อมูลคีย์บอร์ด</a></li>\r\n         <li><a href=\"/examples/simple-game.html\">เกมง่ายๆ</a></li>\r\n"
+                },
+                {
+                    "date": 1765162261565,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-<aside id=\"ex_sidebar\">\r\n+<aside id=\"sidebar\">\r\n     <ul>\r\n         <li><a href=\"/examples/draw-rect.html\">การวาดรูปทรงเหลี่ยม</a></li>\r\n         <li><a href=\"/examples/input-keyboard.html\">การป้อนข้อมูลคีย์บอร์ด</a></li>\r\n         <li><a href=\"/examples/simple-game.html\">เกมง่ายๆ</a></li>\r\n"
+                }
+            ],
+            "date": 1765160660896,
+            "name": "Commit-0",
+            "content": "<aside id=\"sidebar\">\r\n    <ul>\r\n        <li><a href=\"/examples/draw-rect.html\">การวาดรูปทรงเหลี่ยม</a></li>\r\n        <li><a href=\"/examples/input-keyboard.html\">การป้อนข้อมูลคีย์บอร์ด</a></li>\r\n        <li><a href=\"/examples/simple-game.html\">เกมง่ายๆ</a></li>\r\n    </ul>\r\n</aside>\r\n"
+        }
+    ]
+}

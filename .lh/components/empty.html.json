@@ -1,0 +1,22 @@
+{
+    "sourceFile": "components/empty.html",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1765164260274,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1765164758956,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-<aside id=\"sidebar\">\r\n+<aside id=\"sidebar\" class=\"empty-sidebar\">\r\n     <ul>\r\n        \r\n     </ul>\r\n </aside>\r\n"
+                }
+            ],
+            "date": 1765164260274,
+            "name": "Commit-0",
+            "content": "<aside id=\"sidebar\">\r\n    <ul>\r\n       \r\n    </ul>\r\n</aside>\r\n"
+        }
+    ]
+}

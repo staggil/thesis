@@ -1,0 +1,78 @@
+{
+    "sourceFile": "style.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 15,
+            "patches": [
+                {
+                    "date": 1765164069302,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1765164758957,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -109,4 +109,15 @@\n         flex-direction: column;\r\n         gap: 5px;\r\n     }\r\n }\r\n+\r\n+\r\n+/* สำหรับ empty sidebar ให้สีเหมือนพื้นหลังของ body */\r\n+#sidebar.empty-sidebar {\r\n+    background-color: transparent; /* หรือสีเดียวกับ body */\r\n+    padding: 0;       /* ถ้าอยากให้ไม่มี padding */\r\n+    width: 0;         /* หรือจะซ่อนเลยก็ได้ */\r\n+    float: none;\r\n+    height: auto;\r\n+    overflow: visible;\r\n+}\r\n"
+                },
+                {
+                    "date": 1765164805452,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -120,4 +120,13 @@\n     float: none;\r\n     height: auto;\r\n     overflow: visible;\r\n }\r\n+\r\n+#sidebar.empty-sidebar {\r\n+    display: none; /* ซ่อน sidebar */\r\n+}\r\n+body.index #main-content {\r\n+    margin-left: 0;  /* ขยายเต็มพื้นที่ที่ sidebar เคยอยู่ */\r\n+    max-width: 700px;\r\n+    margin: 0 auto;\r\n+}\r\n"
+                },
+                {
+                    "date": 1765164833633,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -115,9 +115,8 @@\n /* สำหรับ empty sidebar ให้สีเหมือนพื้นหลังของ body */\r\n #sidebar.empty-sidebar {\r\n     background-color: transparent; /* หรือสีเดียวกับ body */\r\n     padding: 0;       /* ถ้าอยากให้ไม่มี padding */\r\n-    width: 0;         /* หรือจะซ่อนเลยก็ได้ */\r\n     float: none;\r\n     height: auto;\r\n     overflow: visible;\r\n }\r\n"
+                },
+                {
+                    "date": 1765164856364,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -116,9 +116,8 @@\n #sidebar.empty-sidebar {\r\n     background-color: transparent; /* หรือสีเดียวกับ body */\r\n     padding: 0;       /* ถ้าอยากให้ไม่มี padding */\r\n     float: none;\r\n-    height: auto;\r\n     overflow: visible;\r\n }\r\n \r\n #sidebar.empty-sidebar {\r\n"
+                },
+                {
+                    "date": 1765165000228,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -119,11 +119,8 @@\n     float: none;\r\n     overflow: visible;\r\n }\r\n \r\n-#sidebar.empty-sidebar {\r\n-    display: none; /* ซ่อน sidebar */\r\n-}\r\n body.index #main-content {\r\n     margin-left: 0;  /* ขยายเต็มพื้นที่ที่ sidebar เคยอยู่ */\r\n     max-width: 700px;\r\n     margin: 0 auto;\r\n"
+                },
+                {
+                    "date": 1765165021289,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -119,8 +119,11 @@\n     float: none;\r\n     overflow: visible;\r\n }\r\n \r\n+#sidebar.empty-sidebar {\r\n+    display: none; /* ซ่อน sidebar */\r\n+}\r\n body.index #main-content {\r\n     margin-left: 0;  /* ขยายเต็มพื้นที่ที่ sidebar เคยอยู่ */\r\n     max-width: 700px;\r\n     margin: 0 auto;\r\n"
+                },
+                {
+                    "date": 1765165083087,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -111,20 +111,16 @@\n     }\r\n }\r\n \r\n \r\n-/* สำหรับ empty sidebar ให้สีเหมือนพื้นหลังของ body */\r\n-#sidebar.empty-sidebar {\r\n-    background-color: transparent; /* หรือสีเดียวกับ body */\r\n-    padding: 0;       /* ถ้าอยากให้ไม่มี padding */\r\n-    float: none;\r\n-    overflow: visible;\r\n+/* สำหรับหน้าที่ sidebar เป็น empty */\r\n+body.empty #sidebar {\r\n+    display: none;      /* ซ่อน sidebar */\r\n }\r\n \r\n-#sidebar.empty-sidebar {\r\n-    display: none; /* ซ่อน sidebar */\r\n+body.empty #main-content {\r\n+    margin-left: 0;     /* ขยายเต็มพื้นที่ */\r\n+    max-width: 700px;   /* กว้างเท่ากับหน้าที่มี sidebar */\r\n+    margin: 0 auto;     /* จัด content กลางหน้า */\r\n+    padding: 20px;\r\n }\r\n-body.index #main-content {\r\n-    margin-left: 0;  /* ขยายเต็มพื้นที่ที่ sidebar เคยอยู่ */\r\n-    max-width: 700px;\r\n-    margin: 0 auto;\r\n-}\r\n+\r\n"
+                },
+                {
+                    "date": 1765165101311,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -111,16 +111,6 @@\n     }\r\n }\r\n \r\n \r\n-/* สำหรับหน้าที่ sidebar เป็น empty */\r\n-body.empty #sidebar {\r\n-    display: none;      /* ซ่อน sidebar */\r\n-}\r\n \r\n-body.empty #main-content {\r\n-    margin-left: 0;     /* ขยายเต็มพื้นที่ */\r\n-    max-width: 700px;   /* กว้างเท่ากับหน้าที่มี sidebar */\r\n-    margin: 0 auto;     /* จัด content กลางหน้า */\r\n-    padding: 20px;\r\n-}\r\n \r\n"
+                },
+                {
+                    "date": 1765165200480,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -110,7 +110,18 @@\n         gap: 5px;\r\n     }\r\n }\r\n \r\n+/* =========================\r\n+   Empty sidebar\r\n+   ========================= */\r\n+#sidebar.empty-sidebar {\r\n+    background-color: #fff;  /* สีเดียวกับ container ของ main-content */\r\n+    padding: 0;              /* ไม่ต้องมี padding */\r\n+    width: 0;                /* ไม่กินพื้นที่ */\r\n+    float: none;             /* ไม่ลอยซ้าย */\r\n+    height: auto;\r\n+    overflow: visible;\r\n+}\r\n \r\n \r\n \r\n"
+                },
+                {
+                    "date": 1765165321786,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -116,9 +116,9 @@\n    ========================= */\r\n #sidebar.empty-sidebar {\r\n     background-color: #fff;  /* สีเดียวกับ container ของ main-content */\r\n     padding: 0;              /* ไม่ต้องมี padding */\r\n-    width: 0;                /* ไม่กินพื้นที่ */\r\n+    \r\n     float: none;             /* ไม่ลอยซ้าย */\r\n     height: auto;\r\n     overflow: visible;\r\n }\r\n"
+                },
+                {
+                    "date": 1765165382943,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -116,9 +116,9 @@\n    ========================= */\r\n #sidebar.empty-sidebar {\r\n     background-color: #fff;  /* สีเดียวกับ container ของ main-content */\r\n     padding: 0;              /* ไม่ต้องมี padding */\r\n-    \r\n+    max-width: 700px;\r\n     float: none;             /* ไม่ลอยซ้าย */\r\n     height: auto;\r\n     overflow: visible;\r\n }\r\n"
+                },
+                {
+                    "date": 1765165543996,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -114,14 +114,11 @@\n /* =========================\r\n    Empty sidebar\r\n    ========================= */\r\n #sidebar.empty-sidebar {\r\n-    background-color: #fff;  /* สีเดียวกับ container ของ main-content */\r\n-    padding: 0;              /* ไม่ต้องมี padding */\r\n-    max-width: 700px;\r\n-    float: none;             /* ไม่ลอยซ้าย */\r\n-    height: auto;\r\n-    overflow: visible;\r\n+    background-color: #fff;   /* สีเดียวกับ container */\r\n+    padding: 15px;            /* คง padding เดิมถ้าอยากให้ layoutเหมือนหน้าที่มี sidebar */\r\n+    /* อย่าแก้ width หรือ float */\r\n }\r\n \r\n \r\n \r\n"
+                },
+                {
+                    "date": 1765165576223,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -115,9 +115,9 @@\n    Empty sidebar\r\n    ========================= */\r\n #sidebar.empty-sidebar {\r\n     background-color: #fff;   /* สีเดียวกับ container */\r\n-    padding: 15px;            /* คง padding เดิมถ้าอยากให้ layoutเหมือนหน้าที่มี sidebar */\r\n+           /* คง padding เดิมถ้าอยากให้ layoutเหมือนหน้าที่มี sidebar */\r\n     /* อย่าแก้ width หรือ float */\r\n }\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1765165860387,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -119,6 +119,19 @@\n            /* คง padding เดิมถ้าอยากให้ layoutเหมือนหน้าที่มี sidebar */\r\n     /* อย่าแก้ width หรือ float */\r\n }\r\n \r\n+/* หน้า login ให้ layout อยู่กลางและสวยขึ้น */\r\n+body.login-page #main-content {\r\n+    max-width: 400px;       /* กว้างแค่พอ form */\r\n+    margin: 50px auto;      /* จัดกลางแนวนอนและเว้นบน */\r\n+    padding: 20px;\r\n+    background-color: #fff; /* เหมือน container */\r\n+    border-radius: 8px;\r\n+    box-shadow: 0 0 10px rgba(0,0,0,0.1);\r\n+}\r\n \r\n+body.login-page #sidebar-placeholder {\r\n+    display: none; /* ซ่อน sidebar */\r\n+}\r\n \r\n+\r\n"
+                },
+                {
+                    "date": 1765166052363,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -133,5 +133,19 @@\n body.login-page #sidebar-placeholder {\r\n     display: none; /* ซ่อน sidebar */\r\n }\r\n \r\n+/* หน้า register ให้ layout อยู่กลางเหมือน login */\r\n+body.register-page #main-content {\r\n+    max-width: 400px;          /* กว้างพอ form */\r\n+    margin: 50px auto;         /* จัดกลางหน้า */\r\n+    padding: 20px;\r\n+    background-color: #fff;    /* เหมือน container */\r\n+    border-radius: 8px;\r\n+    box-shadow: 0 0 10px rgba(0,0,0,0.1);\r\n+}\r\n \r\n+body.register-page #sidebar-placeholder {\r\n+    display: none; /* ซ่อน sidebar */\r\n+}\r\n+\r\n+\r\n"
+                }
+            ],
+            "date": 1765164069302,
+            "name": "Commit-0",
+            "content": "/* =========================\r\n   Reset & Body\r\n   ========================= */\r\nbody {\r\n    margin: 0;\r\n    font-family: Arial, sans-serif;\r\n    box-sizing: border-box;\r\n}\r\n\r\n/* =========================\r\n   Header\r\n   ========================= */\r\nheader {\r\n    background-color: #333;\r\n    color: white;\r\n    padding: 10px 20px;\r\n}\r\n\r\n.navbar ul {\r\n    list-style: none;\r\n    display: flex;\r\n    gap: 15px;\r\n    padding: 0;\r\n    margin: 0;\r\n}\r\n\r\n.navbar ul li a {\r\n    color: white;\r\n    text-decoration: none;\r\n}\r\n\r\n/* =========================\r\n   Sidebar\r\n   ========================= */\r\n#sidebar {\r\n    width: 200px;               /* กำหนดความกว้าง */\r\n    background-color: #f4f4f4;  /* สีพื้นหลัง */\r\n    padding: 15px;              /* ระยะขอบภายใน */\r\n    float: left;                /* ลอยซ้าย */\r\n    height: 100vh;              /* ความสูงเต็มหน้าจอ */\r\n    overflow-y: auto;           /* scroll ถ้ายาวเกิน */\r\n}\r\n\r\n#sidebar ul {\r\n    list-style: none;\r\n    padding: 0;\r\n}\r\n\r\n#sidebar ul li {\r\n    margin-bottom: 10px;\r\n}\r\n\r\n#sidebar ul li a {\r\n    text-decoration: none;\r\n    color: #333;\r\n    display: block;\r\n    padding: 8px;\r\n    border-radius: 4px;\r\n    transition: background 0.3s;\r\n}\r\n\r\n#sidebar ul li a:hover {\r\n    background-color: #ddd;\r\n}\r\n\r\n/* =========================\r\n   Main Content\r\n   ========================= */\r\n#main-content {\r\n    padding: 20px;          /* ระยะขอบภายใน */\r\n    margin-left: 300px;     /* เว้นระยะจาก sidebar (sidebar width + 20px) */\r\n    max-width: 700px;\r\n}\r\n\r\n/* กรณีหน้า index.html ไม่มี sidebar */\r\nbody.index #main-content {\r\n    margin-left: 0;\r\n    max-width: 700px;        /* กว้างเท่ากับหน้าที่มี sidebar */\r\n    margin: 0 auto;          /* จัด content กลางหน้า */\r\n}\r\n\r\n/* =========================\r\n   Footer\r\n   ========================= */\r\nfooter {\r\n    clear: both;\r\n    background-color: #333;\r\n    color: white;\r\n    text-align: center;\r\n    padding: 15px;\r\n    position: relative;\r\n}\r\n\r\n/* =========================\r\n   Responsive (มือถือ)\r\n   ========================= */\r\n@media screen and (max-width: 768px) {\r\n    #sidebar {\r\n        width: 100%;\r\n        height: auto;\r\n        float: none;\r\n    }\r\n    #main-content {\r\n        margin-left: 0;\r\n        padding: 15px;\r\n    }\r\n\r\n    .navbar ul {\r\n        flex-direction: column;\r\n        gap: 5px;\r\n    }\r\n}\r\n"
+        }
+    ]
+}

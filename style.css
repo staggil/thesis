@@ -1,0 +1,151 @@
+/* =========================
+   Reset & Body
+   ========================= */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+/* =========================
+   Header
+   ========================= */
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* =========================
+   Sidebar
+   ========================= */
+#sidebar {
+    width: 200px;               /* กำหนดความกว้าง */
+    background-color: #f4f4f4;  /* สีพื้นหลัง */
+    padding: 15px;              /* ระยะขอบภายใน */
+    float: left;                /* ลอยซ้าย */
+    height: 100vh;              /* ความสูงเต็มหน้าจอ */
+    overflow-y: auto;           /* scroll ถ้ายาวเกิน */
+}
+
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+#sidebar ul li {
+    margin-bottom: 10px;
+}
+
+#sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+#sidebar ul li a:hover {
+    background-color: #ddd;
+}
+
+/* =========================
+   Main Content
+   ========================= */
+#main-content {
+    padding: 20px;          /* ระยะขอบภายใน */
+    margin-left: 300px;     /* เว้นระยะจาก sidebar (sidebar width + 20px) */
+    max-width: 700px;
+}
+
+/* กรณีหน้า index.html ไม่มี sidebar */
+body.index #main-content {
+    margin-left: 0;
+    max-width: 700px;        /* กว้างเท่ากับหน้าที่มี sidebar */
+    margin: 0 auto;          /* จัด content กลางหน้า */
+}
+
+/* =========================
+   Footer
+   ========================= */
+footer {
+    clear: both;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    position: relative;
+}
+
+/* =========================
+   Responsive (มือถือ)
+   ========================= */
+@media screen and (max-width: 768px) {
+    #sidebar {
+        width: 100%;
+        height: auto;
+        float: none;
+    }
+    #main-content {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+/* =========================
+   Empty sidebar
+   ========================= */
+#sidebar.empty-sidebar {
+    background-color: #fff;   /* สีเดียวกับ container */
+           /* คง padding เดิมถ้าอยากให้ layoutเหมือนหน้าที่มี sidebar */
+    /* อย่าแก้ width หรือ float */
+}
+
+/* หน้า login ให้ layout อยู่กลางและสวยขึ้น */
+body.login-page #main-content {
+    max-width: 400px;       /* กว้างแค่พอ form */
+    margin: 50px auto;      /* จัดกลางแนวนอนและเว้นบน */
+    padding: 20px;
+    background-color: #fff; /* เหมือน container */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+body.login-page #sidebar-placeholder {
+    display: none; /* ซ่อน sidebar */
+}
+
+/* หน้า register ให้ layout อยู่กลางเหมือน login */
+body.register-page #main-content {
+    max-width: 400px;          /* กว้างพอ form */
+    margin: 50px auto;         /* จัดกลางหน้า */
+    padding: 20px;
+    background-color: #fff;    /* เหมือน container */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+body.register-page #sidebar-placeholder {
+    display: none; /* ซ่อน sidebar */
+}
+
+

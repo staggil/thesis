@@ -1,0 +1,22 @@
+{
+    "sourceFile": "examples/input-keyboard.html",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1765160358171,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1765162113817,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     <title>input-keyboard</title>\r\n     <link rel=\"stylesheet\" href=\"/style.css\">\r\n     <script src=\"/script.js\" defer></script>\r\n </head>\r\n-<body>\r\n+<body data-sidebar=\"/components/examples_sidebar.html\">\r\n \r\n     <!-- Header -->\r\n     <div id=\"header-placeholder\"></div>\r\n \r\n"
+                }
+            ],
+            "date": 1765160358171,
+            "name": "Commit-0",
+            "content": "<!DOCTYPE html>\r\n<html lang=\"th\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>input-keyboard</title>\r\n    <link rel=\"stylesheet\" href=\"/style.css\">\r\n    <script src=\"/script.js\" defer></script>\r\n</head>\r\n<body>\r\n\r\n    <!-- Header -->\r\n    <div id=\"header-placeholder\"></div>\r\n\r\n    <!-- Sidebar -->\r\n    <div id=\"sidebar-placeholder\"></div>\r\n\r\n    <!-- Content -->\r\n    <main id=\"main-content\">\r\n        <h1>input-keyboard</h1>\r\n        <p>เนื้อหาของหน้าจะใส่ตรงนี้</p>\r\n    </main>\r\n\r\n    <!-- Footer -->\r\n    <div id=\"footer-placeholder\"></div>\r\n\r\n</body>\r\n</html>\r\n"
+        }
+    ]
+}

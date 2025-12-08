@@ -1,0 +1,22 @@
+{
+    "sourceFile": "app.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1765159604317,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1765160264771,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n const express = require(\"express\");\r\n const path = require(\"path\");\r\n const app = express();\r\n \r\n-app.use(express.static(__dirname));  // เสิร์ฟทุกไฟล์ในโฟลเดอร์นี้\r\n+app.use(express.static(__dirname));  // run  \" node app.js \" first\r\n \r\n app.get(\"/\", (req, res) => {\r\n   res.sendFile(path.join(__dirname, \"index.html\"));\r\n });\r\n"
+                }
+            ],
+            "date": 1765159604317,
+            "name": "Commit-0",
+            "content": "const express = require(\"express\");\r\nconst path = require(\"path\");\r\nconst app = express();\r\n\r\napp.use(express.static(__dirname));  // เสิร์ฟทุกไฟล์ในโฟลเดอร์นี้\r\n\r\napp.get(\"/\", (req, res) => {\r\n  res.sendFile(path.join(__dirname, \"index.html\"));\r\n});\r\n\r\napp.listen(3000, () => console.log(\"Server running on http://localhost:3000\"));\r\n"
+        }
+    ]
+}

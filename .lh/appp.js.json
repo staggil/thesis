@@ -1,0 +1,18 @@
+{
+    "sourceFile": "appp.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1765159325357,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1765159325357,
+            "name": "Commit-0",
+            "content": "const express = require(\"express\");\r\nconst path = require(\"path\");\r\nconst app = express();\r\n\r\napp.get(\"/\", (req, res) => {\r\n  res.sendFile(path.join(__dirname, \"index.html\"));\r\n});\r\n\r\nconst PORT = 3000;\r\napp.listen(PORT, () => {\r\n  console.log(`Server is running on http://localhost:${PORT}`);\r\n});\r\n"
+        }
+    ]
+}

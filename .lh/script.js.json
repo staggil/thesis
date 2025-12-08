@@ -1,0 +1,22 @@
+{
+    "sourceFile": "script.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1765161387588,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1765161994338,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,26 +1,25 @@\n function loadComponent(filePath, elementId) {\r\n     if (!filePath) return;\r\n+    const el = document.getElementById(elementId);\r\n+    if (!el) {\r\n+        console.error(`ไม่พบ element id=\"${elementId}\"`);\r\n+        return;\r\n+    }\r\n     fetch(filePath)\r\n-    .then(response => {\r\n-        if (!response.ok) throw new Error(\"ไม่พบไฟล์ \" + filePath);\r\n-        return response.text();\r\n-    })\r\n-    .then(data => {\r\n-        document.getElementById(elementId).innerHTML = data;\r\n-    })\r\n-    .catch(error => console.error(error));\r\n+        .then(response => {\r\n+            if (!response.ok) throw new Error(\"ไม่พบไฟล์ \" + filePath);\r\n+            return response.text();\r\n+        })\r\n+        .then(data => {\r\n+            el.innerHTML = data;\r\n+        })\r\n+        .catch(error => console.error(error));\r\n }\r\n \r\n document.addEventListener(\"DOMContentLoaded\", function() {\r\n     loadComponent(\"/components/header.html\", \"header-placeholder\");\r\n     loadComponent(\"/components/footer.html\", \"footer-placeholder\");\r\n \r\n-    // โหลด sidebar ตาม data-sidebar attribute\r\n     const sidebarFile = document.body.getAttribute(\"data-sidebar\");\r\n-    if (sidebarFile) {\r\n-        // สำหรับ lessons sidebar ใช้ id \"sidebar\"\r\n-        // สำหรับ examples/exercises ใช้ id \"ex_sidebar\"\r\n-        const elementId = sidebarFile.includes(\"lessons\") ? \"sidebar\" : \"ex_sidebar\";\r\n-        loadComponent(sidebarFile, elementId);\r\n-    }\r\n+    loadComponent(sidebarFile, \"sidebar-placeholder\");\r\n });\r\n"
+                }
+            ],
+            "date": 1765161387588,
+            "name": "Commit-0",
+            "content": "function loadComponent(filePath, elementId) {\r\n    if (!filePath) return;\r\n    fetch(filePath)\r\n    .then(response => {\r\n        if (!response.ok) throw new Error(\"ไม่พบไฟล์ \" + filePath);\r\n        return response.text();\r\n    })\r\n    .then(data => {\r\n        document.getElementById(elementId).innerHTML = data;\r\n    })\r\n    .catch(error => console.error(error));\r\n}\r\n\r\ndocument.addEventListener(\"DOMContentLoaded\", function() {\r\n    loadComponent(\"/components/header.html\", \"header-placeholder\");\r\n    loadComponent(\"/components/footer.html\", \"footer-placeholder\");\r\n\r\n    // โหลด sidebar ตาม data-sidebar attribute\r\n    const sidebarFile = document.body.getAttribute(\"data-sidebar\");\r\n    if (sidebarFile) {\r\n        // สำหรับ lessons sidebar ใช้ id \"sidebar\"\r\n        // สำหรับ examples/exercises ใช้ id \"ex_sidebar\"\r\n        const elementId = sidebarFile.includes(\"lessons\") ? \"sidebar\" : \"ex_sidebar\";\r\n        loadComponent(sidebarFile, elementId);\r\n    }\r\n});\r\n"
+        }
+    ]
+}
