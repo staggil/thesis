@@ -58,4 +58,30 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const sidebarFile = document.body.getAttribute("data-sidebar");
     loadComponent(sidebarFile, "sidebar-placeholder");
+
+    // ตรวจสอบ exercise links หลังจากโหลด header เสร็จ
+    const checkExerciseLinks = () => {
+        const exerciseLinks = document.querySelectorAll("a[href^='/exercises/']");
+        exerciseLinks.forEach(link => {
+            link.addEventListener("click", async (e) => {
+                e.preventDefault();
+                const res = await fetch("/me");
+                const user = await res.json();
+                if (!user.username) {
+                    const goLogin = confirm("คุณต้อง login ก่อนเข้าแบบฝึกหัด\nไปหน้า Login ตอนนี้หรือไม่?");
+                    if (goLogin) window.location.href = "/login.html";
+                } else {
+                    window.location.href = link.href;
+                }
+            });
+        });
+    };
+
+    // รอ header โหลดเสร็จแล้วค่อย bind
+    const headerInterval = setInterval(() => {
+        if (document.getElementById("header-placeholder").children.length > 0) {
+            clearInterval(headerInterval);
+            checkExerciseLinks();
+        }
+    }, 50);
 });
