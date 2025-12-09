@@ -1,0 +1,38 @@
+{
+    "sourceFile": "start_server.bat",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1765268806983,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1765270806606,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,10 @@\n @echo off\r\n echo Starting Node server...\r\n-cd /d %~dp0\r\n-npm start\r\n+echo.\r\n+\r\n+:: รัน Node และแสดง log ทั้งหมด\r\n+node app.js\r\n+\r\n+echo.\r\n+echo ===== Server stopped =====\r\n pause\r\n"
+                },
+                {
+                    "date": 1765271283518,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,6 @@\n @echo off\r\n echo Starting Node server...\r\n echo.\r\n \r\n-:: รัน Node และแสดง log ทั้งหมด\r\n node app.js\r\n-\r\n-echo.\r\n-echo ===== Server stopped =====\r\n pause\r\n"
+                },
+                {
+                    "date": 1765271450343,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,8 @@\n @echo off\r\n echo Starting Node server...\r\n echo.\r\n \r\n-node app.js\r\n-pause\r\n+:: เปิดหน้าต่าง cmd ใหม่ และรัน node app.js แบบค้าง\r\n+start cmd /k \"node app.js\"\r\n+\r\n+exit\r\n"
+                },
+                {
+                    "date": 1765271526471,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,1 @@\n-@echo off\r\n-echo Starting Node server...\r\n-echo.\r\n \r\n-:: เปิดหน้าต่าง cmd ใหม่ และรัน node app.js แบบค้าง\r\n-start cmd /k \"node app.js\"\r\n-\r\n-exit\r\n"
+                },
+                {
+                    "date": 1765271854976,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,9 @@\n+@echo off\r\n+echo Starting Node server...\r\n+echo.\r\n \r\n+REM เรียก Node.js รัน app.js\r\n+node app.js\r\n+\r\n+REM รอให้ผู้ใช้กดปุ่มก่อนปิดหน้าต่าง\r\n+pause\r\n"
+                }
+            ],
+            "date": 1765268806983,
+            "name": "Commit-0",
+            "content": "@echo off\r\necho Starting Node server...\r\ncd /d %~dp0\r\nnpm start\r\npause\r\n"
+        }
+    ]
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ยืนยัน OTP</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body data-sidebar="/components/empty.html">
+
+<!-- Header -->
+<div id="header-placeholder"></div>
+
+<!-- Sidebar -->
+<div id="sidebar-placeholder"></div> 
+
+<!-- Content -->
+<main id="main-content">
+    <h1>กรอก OTP</h1>
+    <form id="otp-form">
+        <input type="text" id="otp" placeholder="รหัส OTP 6 หลัก" required>
+        <button type="submit">ยืนยัน</button>
+    </form>
+    <p id="otp-error" style="color:red; display:none;"></p>
+    <p id="otp-success" style="color:green; display:none;"></p>
+</main>
+
+<!-- Footer -->
+<div id="footer-placeholder"></div>
+
+<script>
+document.getElementById("otp-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const otp = document.getElementById("otp").value;
+    const email = sessionStorage.getItem("otp_email"); // ใช้ email จาก register
+
+    const res = await fetch("/verify-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ otp })
+    });
+    const data = await res.json();
+
+    const errEl = document.getElementById("otp-error");
+    const successEl = document.getElementById("otp-success");
+
+    if (data.success) {
+        successEl.textContent = data.message;
+        successEl.style.display = "block";
+        errEl.style.display = "none";
+
+        setTimeout(() => window.location.href = "/login.html", 1500); // ไป login หลัง OTP ถูกต้อง
+    } else {
+        errEl.textContent = data.message;
+        errEl.style.display = "block";
+        successEl.style.display = "none";
+    }
+});
+</script>
+</body>
+</html>

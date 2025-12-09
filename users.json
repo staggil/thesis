@@ -8,5 +8,15 @@
     "username": "dummy",
     "passwordHash": "$2b$10$wwj2nIS.AsqO11YpsKJ74uJjYRlMimXka0NNOqwHHB5AblOCejJUu",
     "fullname": "dummy"
+  },
+  {
+    "username": "admin1",
+    "passwordHash": "$2b$10$Xe2Xn4EhVesuW5mAdX.n0uHSlbPnKibrOKpJJjxcW4f26yjUf8fji",
+    "fullname": "admin1"
+  },
+  {
+    "username": "admin2",
+    "passwordHash": "$2b$10$nYjUdHDRKYdQcMwJ2LhMbecx/EcmOxQNk8iPfQogxMPrh2rVcEW.S",
+    "fullname": "admin2"
   }
 ]

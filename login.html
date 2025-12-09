@@ -19,8 +19,9 @@
     <main id="main-content">
         <h1>เข้าสู่ระบบ</h1>
         <form id="login-form">
-            <label for="username">ชื่อผู้ใช้</label><br>
-            <input type="text" id="username" name="username" required><br><br>
+            <label for="username">ชื่อผู้ใช้ หรือ อีเมล</label><br>
+            <input type="text" id="username" name="username" placeholder="Username หรือ Email" required><br><br>
+
 
             <label for="password">รหัสผ่าน</label><br>
             <input type="password" id="password" name="password" required><br><br>
@@ -28,6 +29,7 @@
             <button type="submit">เข้าสู่ระบบ</button>
         </form>
         <p id="login-error" style="color: red; display: none;"></p>
+        <p>หากไม่มีบัญชี <a href="register.html">สมัครสมาชิก</a></p>
     </main>
 
     <!-- Footer -->

@@ -21,6 +21,9 @@
         <form id="register-form">
             <label for="username">ชื่อผู้ใช้</label><br>
             <input type="text" id="username" name="username" required><br><br>
+            
+            <label for="email">อีเมล</label><br>
+            <input type="email" id="email" name="email" required><br><br>
 
             <label for="password">รหัสผ่าน</label><br>
             <input type="password" id="password" name="password" required><br><br>
@@ -32,52 +35,76 @@
         </form>
         <p id="register-error" style="color:red; display:none;"></p>
         <p>หากมีบัญชีแล้ว <a href="login.html">เข้าสู่ระบบ</a></p>
+
+
+
+        <button id="create-email-btn" style="display:none">สร้าง Ethereal Email</button>
+
+        <script>
+            const enableButton = true; // หรือส่งมาจาก server
+                if(enableButton) {
+                document.getElementById("create-email-btn").style.display = "block";
+                }
+
+                document.getElementById("create-email-btn").addEventListener("click", async () => {
+                const res = await fetch("/create-ethereal", { method: "POST" });
+                const data = await res.json();
+                alert("Ethereal user: " + data.user);
+                });
+        </script>
+
+
     </main>
 
     <!-- Footer -->
     <div id="footer-placeholder"></div>
 
     <script>
-    document.getElementById("register-form").addEventListener("submit", async (e) => {
-        e.preventDefault();
+  document.getElementById("register-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-        const username = document.getElementById("username").value.trim();
-        const password = document.getElementById("password").value;
-        const fullname = document.getElementById("fullname").value.trim();
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value;
+    const fullname = document.getElementById("fullname").value.trim();
+    const email = document.getElementById("email").value.trim(); // เพิ่ม
 
-        if (!username || !password || !fullname) {
-            const err = document.getElementById("register-error");
-            err.style.display = "block";
-            err.textContent = "กรุณากรอกข้อมูลให้ครบทุกช่อง";
-            return;
-        }
+    if (!username || !password || !fullname || !email) { // ตรวจ email ด้วย
+        const err = document.getElementById("register-error");
+        err.style.display = "block";
+        err.textContent = "กรุณากรอกข้อมูลให้ครบทุกช่อง";
+        return;
+    }
 
-        try {
-            const res = await fetch("/register", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ username, password, fullname })
-            });
+    try {
+        const res = await fetch("/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, email, password, fullname }) // ส่ง email ด้วย
+        });
 
-            const data = await res.json();
+        const data = await res.json();
 
-            const err = document.getElementById("register-error");
-            if (data.success) {
-                err.style.display = "none";
-                alert(data.message);
-                window.location.href = "/login.html"; // redirect ไปหน้า login
-            } else {
-                err.style.display = "block";
-                err.textContent = data.message;
-            }
+        const err = document.getElementById("register-error");
+       if (data.success) {
+    err.style.display = "none";
+    
+    // เก็บ email ไว้ใช้ verify OTP
+    sessionStorage.setItem("otp_email", email);
 
-        } catch (error) {
-            console.error("Error:", error);
-            const err = document.getElementById("register-error");
-            err.style.display = "block";
-            err.textContent = "เกิดข้อผิดพลาดในการเชื่อมต่อเซิร์ฟเวอร์";
-        }
-    });
+    alert("สมัครสมาชิกเรียบร้อย! ตรวจสอบ OTP ในอีเมลของคุณ (ทดสอบ)");
+    window.location.href = "/verify_otp.html"; // redirect ไปหน้า verify OTP
+    } else {
+        err.style.display = "block";
+        err.textContent = data.message;
+    }
+
+    } catch (error) {
+        console.error("Error:", error);
+        const err = document.getElementById("register-error");
+        err.style.display = "block";
+        err.textContent = "เกิดข้อผิดพลาดในการเชื่อมต่อเซิร์ฟเวอร์";
+    }
+});
     </script>
 
 </body>
