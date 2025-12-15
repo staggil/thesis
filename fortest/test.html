@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sidebar + Footer Demo</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Verdana, Arial, sans-serif;
+    line-height: 1.6;
+  }
+
+  /* Sidebar fixed */
+  #sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    background-color: #e7e9eb;
+    padding: 16px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    z-index: 10; /* ต่ำกว่า footer */
+  }
+
+  /* Main content */
+  #main-content {
+    margin-left: 220px; /* เว้นช่องให้ sidebar */
+    padding: 32px;
+    background-color: #fff;
+    min-height: 2000px; /* ทำให้หน้า scroll ได้ */
+  }
+
+  /* Footer */
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative; /* ปกติอยู่ด้านล่าง */
+    z-index: 20; /* อยู่เหนือ sidebar */
+  }
+</style>
+</head>
+<body>
+
+<div id="sidebar">
+  <h3>Sidebar</h3>
+  <ul>
+    <li>เมนู 1</li>
+    <li>เมนู 2</li>
+    <li>เมนู 3</li>
+  </ul>
+</div>
+
+<div id="main-content">
+  <h1>Main Content</h1>
+  <p>เลื่อนลงมาดู Footer ทับ Sidebar...</p>
+  <p>เนื้อหาเยอะ ๆ...</p>
+  <p>เนื้อหาเยอะ ๆ...</p>
+  <p>เนื้อหาเยอะ ๆ...</p>
+  <p>เนื้อหาเยอะ ๆ...</p>
+  <p>เนื้อหาเยอะ ๆ...</p>
+</div>
+
+<footer>
+  Footer content
+</footer>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 7,
+            "activePatchIndex": 9,
             "patches": [
                 {
                     "date": 1765163341248,
@@ -36,6 +36,14 @@
                 {
                     "date": 1765180712210,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,27 +1,15 @@\n <header>\r\n-    <nav class=\"navbar\">\r\n-        <ul>\r\n+   <nav class=\"navbar\">\r\n+        <ul id=\"nav-items\">\r\n             <li><a href=\"/index.html\">หน้าแรก</a></li>\r\n             <li><a href=\"/lessons/intro.html\">บทเรียน</a></li>\r\n             <li><a href=\"/examples/draw-rect.html\">ตัวอย่าง</a></li>\r\n             <li><a href=\"/exercises/exercise1.html\">แบบฝึกหัด</a></li>\r\n             <li><a href=\"/about/about.html\">เกี่ยวกับ</a></li>\r\n-            <li><a href=\"/register.html\">ลงทะเบียน</a></li>\r\n-            <li><a href=\"/login.html\">ล็อกอิน</a></li>\r\n+            <li class=\"login-only\"><a href=\"/register.html\">ลงทะเบียน</a></li>\r\n+            <li class=\"login-only\"><a href=\"/login.html\">ล็อกอิน</a></li>\r\n+            <li class=\"user-only\"><span id=\"username-display\"></span></li>\r\n+            <li class=\"user-only\"><a href=\"#\" id=\"logout-link\">ออกจากระบบ</a></li>\r\n         </ul>\r\n     </nav>\r\n </header>\r\n-<ul id=\"nav-items\">\r\n-  <li><a href=\"/index.html\">หน้าแรก</a></li>\r\n-  <li><a href=\"/lessons/intro.html\">บทเรียน</a></li>\r\n-  <li><a href=\"/examples/draw-rect.html\">ตัวอย่าง</a></li>\r\n-  <li><a href=\"/exercises/exercise1.html\">แบบฝึกหัด</a></li>\r\n-  <li><a href=\"/about/about.html\">เกี่ยวกับ</a></li>\r\n-  <!-- ส่วนนี้ปรับตาม login -->\r\n-  <!-- ถ้าไม่ได้ login -->\r\n-  <li class=\"login-only\"><a href=\"/register.html\">ลงทะเบียน</a></li>\r\n-  <li class=\"login-only\"><a href=\"/login.html\">ล็อกอิน</a></li>\r\n-  <!-- ถ้า login แล้ว -->\r\n-  <li class=\"user-only\"><span id=\"username-display\"></span></li>\r\n-  <li class=\"user-only\"><a href=\"#\" id=\"logout-link\">ออกจากระบบ</a></li>\r\n-</ul>\r\n"
+                },
+                {
+                    "date": 1765764683170,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <header>\r\n    <nav class=\"navbar\">\r\n         <ul id=\"nav-items\">\r\n             <li><a href=\"/index.html\">หน้าแรก</a></li>\r\n-            <li><a href=\"/lessons/intro.html\">บทเรียน</a></li>\r\n+            <li><a href=\"/lessons/intro.html\">Wordpress</a></li>\r\n             <li><a href=\"/examples/draw-rect.html\">ตัวอย่าง</a></li>\r\n             <li><a href=\"/exercises/exercise1.html\">แบบฝึกหัด</a></li>\r\n             <li><a href=\"/about/about.html\">เกี่ยวกับ</a></li>\r\n             <li class=\"login-only\"><a href=\"/register.html\">ลงทะเบียน</a></li>\r\n"
+                },
+                {
+                    "date": 1765764920067,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <header>\r\n    <nav class=\"navbar\">\r\n         <ul id=\"nav-items\">\r\n             <li><a href=\"/index.html\">หน้าแรก</a></li>\r\n-            <li><a href=\"/lessons/intro.html\">Wordpress</a></li>\r\n+            <li><a href=\"/lessons/intro.html\">WordPress</a></li>\r\n             <li><a href=\"/examples/draw-rect.html\">ตัวอย่าง</a></li>\r\n             <li><a href=\"/exercises/exercise1.html\">แบบฝึกหัด</a></li>\r\n             <li><a href=\"/about/about.html\">เกี่ยวกับ</a></li>\r\n             <li class=\"login-only\"><a href=\"/register.html\">ลงทะเบียน</a></li>\r\n"
                 }
             ],
             "date": 1765163341248,

@@ -1,19 +1,22 @@
-/* =========================
-   Reset & Body
-   ========================= */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Verdana, Arial, sans-serif; 
     box-sizing: border-box;
+    background-color: #f1f1f1; 
+    line-height: 1.6;
 }
 
-/* =========================
-   Header
-   ========================= */
-header {
-    background-color: #333;
+
+#header-placeholder {
+    background-color: #04AA6D;
     color: white;
-    padding: 10px 20px;
+    padding: 16px 24px;
+    font-size: 24px;
+    font-weight: bold;
+     position: sticky;  /* หรือ fixed ก็ได้ */
+    top: 0;            /* ติดด้านบน */
+    z-index: 1000;     /* อยู่เหนือ content */
+    width: 100%;       /* เต็มความกว้างหน้าจอ */
 }
 
 .navbar ul {
@@ -32,13 +35,23 @@ header {
 /* =========================
    Sidebar
    ========================= */
+.layout {
+    display: flex;
+    max-width: 100%;  /* ขยายเต็มหน้าจอ */
+    margin: 0;         /* ไม่มี margin */
+}
+
 #sidebar {
-    width: 200px;               /* กำหนดความกว้าง */
-    background-color: #f4f4f4;  /* สีพื้นหลัง */
-    padding: 15px;              /* ระยะขอบภายใน */
-    float: left;                /* ลอยซ้าย */
-    height: 100vh;              /* ความสูงเต็มหน้าจอ */
-    overflow-y: auto;           /* scroll ถ้ายาวเกิน */
+     position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100vh;       /* สูงเต็มหน้าจอ */
+    overflow-y: auto;    /* scroll ภายใน sidebar */
+    background-color: #e7e9eb;
+    padding: 16px;
+    z-index: 10;
+    
 }
 
 #sidebar ul {
@@ -67,9 +80,13 @@ header {
    Main Content
    ========================= */
 #main-content {
-    padding: 20px;          /* ระยะขอบภายใน */
-    margin-left: 300px;     /* เว้นระยะจาก sidebar (sidebar width + 20px) */
-    max-width: 700px;
+    flex: 1;  /* ขยายเต็มที่ตามพื้นที่ layout */
+    background-color: #fff;
+    padding: 32px;
+    max-width: 960px; /* เหมือน W3Schools */
+    margin-left: 240px;  /* เว้นซ้ายเท่าความกว้าง sidebar */
+    padding: 32px;
+  
 }
 
 /* กรณีหน้า index.html ไม่มี sidebar */
@@ -83,33 +100,31 @@ body.index #main-content {
    Footer
    ========================= */
 footer {
-    clear: both;
     background-color: #333;
     color: white;
     text-align: center;
     padding: 15px;
     position: relative;
+    z-index: 100; /* สูงกว่า sidebar */
 }
 
-/* =========================
-   Responsive (มือถือ)
-   ========================= */
 @media screen and (max-width: 768px) {
+    .layout {
+        flex-direction: column;
+    }
+
     #sidebar {
         width: 100%;
         height: auto;
-        float: none;
-    }
-    #main-content {
-        margin-left: 0;
-        padding: 15px;
+        position: relative;
     }
 
-    .navbar ul {
-        flex-direction: column;
-        gap: 5px;
+    #main-content {
+        max-width: 100%;
+        padding: 15px;
     }
 }
+
 
 /* =========================
    Empty sidebar

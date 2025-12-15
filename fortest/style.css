@@ -1,0 +1,19 @@
+#sidebar {
+    position: fixed;
+    width: 220px;
+    height: 100vh;
+    background: #e7e9eb;
+}
+
+#main-content {
+    margin-left: 240px;
+    background: #fff;
+    min-height: 2000px; /* จำลองยาวเพื่อ Scroll */
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+}
