@@ -3,28 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>quiz</title>
+    <title>หน้าแรก</title>
     <link rel="stylesheet" href="/style.css">
     <script src="/script.js" defer></script>
 </head>
 <body data-sidebar="/components/exercise_sidebar.html">
 
-    <!-- Header -->
+    <div class="app">
+    <!-- header -->
     <div id="header-placeholder"></div>
-
-    <!-- Sidebar -->
     <div id="sidebar-placeholder"></div>
-    
-
-
-    <!-- Content -->
-    <main id="main-content">
-        <h1>quiz</h1>
-        <p>เนื้อหาของหน้าจะใส่ตรงนี้</p>
-    </main>
-
-    <!-- Footer -->
+        <div class="page-wrapper">
+            <div class="layout">
+                <main id="main-content">
+                    <h1>Simple Quiz</h1>
+                        <div id="quiz-container">
+                            <div id="timer">⏱ เวลา: <span id="time">10</span></div>
+                                <h2 id="question">คำถามจะแสดงตรงนี้</h2>
+                                    <div class="choices">
+                                        <button class="choice red"></button>
+                                        <button class="choice blue"></button>
+                                        <button class="choice yellow"></button>
+                                        <button class="choice green"></button>
+                                    </div>
+                                <p id="score">คะแนน: 0</p>
+                        </div>      
+                </main>
+            </div>
+        </div>
+    <!-- footer -->
     <div id="footer-placeholder"></div>
-
+</div>
 </body>
 </html>
+
+
+<!-- โหลด quiz หลัง script.js -->
+<script src="/quiz.js" defer></script>

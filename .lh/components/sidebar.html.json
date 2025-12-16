@@ -3,11 +3,15 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 1,
             "patches": [
                 {
                     "date": 1765767900450,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1765875525559,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <aside id=\"sidebar\">\r\n     <ul>\r\n         <li><a href=\"/lessons/intro.html\">แนะนำ</a></li>\r\n         <li><a href=\"/lessons/basic.html\">พื้นฐาน</a></li>\r\n-        <li><a href=\"/lessons/js-basic.html\">JavaScript เบื้องต้น</a></li>\r\n+        <li><a href=\"/lessons/js-basic.html\">เขียน Blog</a></li>\r\n         <li><a href=\"/lessons/canvas.html\">Canvas</a></li>\r\n         <li><a href=\"/lessons/game1.html\">เกมตัวอย่าง</a></li>\r\n     </ul>\r\n </aside>\r\n"
                 }
             ],
             "date": 1765767900450,

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "quiz.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1765876487939,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1765876487939,
+            "name": "Commit-0",
+            "content": "document.addEventListener(\"DOMContentLoaded\", () => {\r\n    const quizContainer = document.getElementById(\"quiz-container\");\r\n    if (!quizContainer) return; // ไม่ใช่หน้า quiz → ไม่ทำงาน\r\n\r\n    const questions = [\r\n        {\r\n            question: \"2 + 2 = ?\",\r\n            choices: [\"3\", \"4\", \"5\", \"6\"],\r\n            answer: 1\r\n        },\r\n        {\r\n            question: \"เมืองหลวงของไทยคือ?\",\r\n            choices: [\"เชียงใหม่\", \"ภูเก็ต\", \"กรุงเทพฯ\", \"ขอนแก่น\"],\r\n            answer: 2\r\n        }\r\n    ];\r\n\r\n    let current = 0;\r\n    let score = 0;\r\n    let time = 10;\r\n    let timer;\r\n\r\n    const questionEl = document.getElementById(\"question\");\r\n    const timeEl = document.getElementById(\"time\");\r\n    const scoreEl = document.getElementById(\"score\");\r\n    const choices = document.querySelectorAll(\".choice\");\r\n\r\n    function loadQuestion() {\r\n        clearInterval(timer);\r\n        time = 10;\r\n        timeEl.textContent = time;\r\n\r\n        const q = questions[current];\r\n        questionEl.textContent = q.question;\r\n\r\n        choices.forEach((btn, i) => {\r\n            btn.textContent = q.choices[i];\r\n            btn.onclick = () => checkAnswer(i);\r\n        });\r\n\r\n        timer = setInterval(() => {\r\n            time--;\r\n            timeEl.textContent = time;\r\n            if (time === 0) nextQuestion();\r\n        }, 1000);\r\n    }\r\n\r\n    function checkAnswer(i) {\r\n        if (i === questions[current].answer) score++;\r\n        scoreEl.textContent = \"คะแนน: \" + score;\r\n        nextQuestion();\r\n    }\r\n\r\n    function nextQuestion() {\r\n        clearInterval(timer);\r\n        current++;\r\n        if (current < questions.length) {\r\n            loadQuestion();\r\n        } else {\r\n            quizContainer.innerHTML =\r\n                `<h2>จบเกม 🎉</h2><p>คะแนนของคุณ: ${score}</p>`;\r\n        }\r\n    }\r\n\r\n    loadQuestion();\r\n});\r\n"
+        }
+    ]
+}

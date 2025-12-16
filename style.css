@@ -1,9 +1,23 @@
 body {
     margin: 0;
-    font-family: Verdana, Arial, sans-serif; 
-    box-sizing: border-box;
-    background-color: #f1f1f1; 
-    line-height: 1.6;
+    font-family: Verdana, Arial, sans-serif;
+    background-color: #f1f1f1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -36,14 +50,14 @@ body {
    Sidebar
    ========================= */
 .layout {
+    flex: 1; /* ยืดเต็ม parent */
     display: flex;
-    max-width: 100%;  /* ขยายเต็มหน้าจอ */
-    margin: 0;         /* ไม่มี margin */
+    flex-direction: column;
 }
 
 #sidebar {
      position: fixed;
-    top: 0;
+    top: 64px;
     left: 0;
     width: 220px;
     height: 100vh;       /* สูงเต็มหน้าจอ */
@@ -80,13 +94,12 @@ body {
    Main Content
    ========================= */
 #main-content {
-    flex: 1;  /* ขยายเต็มที่ตามพื้นที่ layout */
+    flex: 1; /* ยืดเต็ม layout */
     background-color: #fff;
     padding: 32px;
-    max-width: 960px; /* เหมือน W3Schools */
-    margin-left: 240px;  /* เว้นซ้ายเท่าความกว้าง sidebar */
-    padding: 32px;
-  
+    margin-left: 240px;
+    display: flex;
+    flex-direction: column; /* ทำให้ child quiz-container ยืดได้ */
 }
 
 /* กรณีหน้า index.html ไม่มี sidebar */
@@ -157,6 +170,44 @@ body.register-page #main-content {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
+/* =========================
+   Quiz
+   ========================= */
+#quiz-container {
+    flex: 1; /* ยืดเต็ม main-content */
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
 
+#timer {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.choices {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.choice {
+    padding: 20px;
+    font-size: 18px;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.choice:hover {
+    opacity: 0.9;
+}
+
+.red { background-color: #e21b3c; }
+.blue { background-color: #1368ce; }
+.yellow { background-color: #d89e00; }
+.green { background-color: #26890c; }
 
 
